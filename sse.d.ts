@@ -18,7 +18,7 @@ declare module sse {
         CLOSED: ReadyState; // constant, always 2
         readyState: ReadyState;
         onopen: Function;
-        onmessage: (event: SSEMessageEvent) => void;
+        onmessage: (event: IOnMessageEvent) => void;
         onerror: Function;
         close: () => void;
     }
@@ -27,7 +27,7 @@ declare module sse {
         withCredentials?: boolean;
     }
 
-    interface SSEMessageEvent extends MessageEvent {
+    interface IOnMessageEvent extends MessageEvent {
         lastEventId: string;
     }
 }
