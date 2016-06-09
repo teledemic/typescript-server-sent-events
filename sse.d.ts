@@ -18,12 +18,16 @@ declare module sse {
         CLOSED: ReadyState; // constant, always 2
         readyState: ReadyState;
         onopen: Function;
-        onmessage: (event: MessageEvent) => void;
+        onmessage: (event: SSEMessageEvent) => void;
         onerror: Function;
         close: () => void;
     }
     
     interface IEventSourceInit {
         withCredentials?: boolean;
+    }
+
+    interface SSEMessageEvent extends MessageEvent {
+        lastEventId: string;
     }
 }
