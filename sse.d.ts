@@ -1,6 +1,7 @@
 // Type definitions for Server-Sent Events
 // Specification: http://dev.w3.org/html5/eventsource/
 // Definitions by: Yannik Hampe <https://github.com/yankee42>
+// Fork: https://github.com/teledemic/typescript-server-sent-events
 
 declare var EventSource : sse.IEventSourceStatic;
 
@@ -17,16 +18,12 @@ declare module sse {
         CLOSED: ReadyState; // constant, always 2
         readyState: ReadyState;
         onopen: Function;
-        onmessage: (event: IOnMessageEvent) => void;
+        onmessage: (event: MessageEvent) => void;
         onerror: Function;
         close: () => void;
     }
     
     interface IEventSourceInit {
         withCredentials?: boolean;
-    }
-    
-    interface IOnMessageEvent {
-        data: string;
     }
 }
